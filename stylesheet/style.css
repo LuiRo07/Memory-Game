@@ -1,0 +1,35 @@
+/* generic styling */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: linear-gradient(to bottom, #30c5d2, #471069);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.title h1 {
+    text-align: center;
+    font-size: 79px;
+    font-family: "Lemon", cursive;
+}
+
+.title {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+}
+
+.title a {
+    text-decoration: none;
+    padding: 25px;
+}
+
+button {
+    padding: 25px;
+}

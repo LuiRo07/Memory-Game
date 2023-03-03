@@ -1,32 +1,30 @@
-/* generic styling */
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-/* index stylesheet */
 body {
     background-image: linear-gradient(to bottom, #30c5d2, #471069);
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-.title h1 {
+.game-title h1 {
     text-align: center;
     font-size: 79px;
     font-family: "Lemon", cursive;
     color: #471069;
 }
 
-.title {
+.game-title {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
 }
 
-.start-btn {
+.nav-btn {
     text-decoration: none;
     width: auto;
     height: 40px;
@@ -37,7 +35,23 @@ body {
     margin-top: 30px;
 }
 
-.start-btn:hover {
+.nav-btn:hover {
     background: blue;
     color: white;
+}
+
+.game-container {
+    display: flex;
+    width: 80%;
+    margin: 20px;
+    border: 1px solid red;
+    background-color: white;
+}
+
+.card {
+    color: black;
+    margin: 10px;
+    width: 100px;
+    height: 250px;
+    border: 1px solid blue;
 }

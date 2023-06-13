@@ -1,4 +1,6 @@
 const cards = document.querySelectorAll(".memory-card");
+const gameBoard = document.querySelector(".memory-game");
+const startBtn = document.querySelector(".start-btn");
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -30,7 +32,6 @@ function checkForMatch() {
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-
     resetBoard();
 }
 
@@ -58,4 +59,10 @@ function resetBoard() {
     });
 })();
 
+function startGame() {
+    console.log(gameBoard);
+    gameBoard.style.visibility = "visible";
+}
+
 cards.forEach(card => card.addEventListener('click', flipCard));
+startBtn.addEventListener('click', startGame);

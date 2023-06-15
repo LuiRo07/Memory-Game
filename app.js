@@ -6,47 +6,52 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+// main function
 function flipCard() {
-    if (lockBoard) return;
-    if (this === firstCard) return;
+    if (lockBoard) return; // board locks when you click on card when two cards are already displayed
 
+    if (this === firstCard) return; // When same card is clicked.
+    
     this.classList.add('flip');
-
-    if (!hasFlippedCard) {
+    
+    if (!hasFlippedCard) { // First card that's clicked on
         hasFlippedCard = true;
         firstCard = this;
         return;
     } 
-
-    secondCard = this;
-
+    
+    secondCard = this; // Second card that's clicked on
+    
     checkForMatch();
 }
 
 function checkForMatch() {
-
     let isMatch = firstCard.dataset.animal === secondCard.dataset.animal;
     isMatch ? disableCards() : unflipCards();
 }
 
-function disableCards() {
+function disableCards() { // Cards Match
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-    resetBoard();
+    lockBoard = true;
+    setTimeout(() => {
+        firstCard.style.visibility = 'hidden';
+        secondCard.style.visibility = 'hidden';
+        resetBoard();
+    }, 1000)
 }
 
-function unflipCards() {
+function unflipCards() { // Cards don't match
     lockBoard = true;
 
     setTimeout(() => {
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
-
         resetBoard();
-    }, 1500);
+    }, 1000);
 }
 
-function resetBoard() {
+function resetBoard() { // function invoked after isMatch()
     [hasFlippedCard, lockBoard] = [false, false];
     [firstCard, secondCard] = [null, null];
 }
@@ -60,9 +65,8 @@ function resetBoard() {
 })();
 
 function startGame() {
-    console.log(gameBoard);
     gameBoard.style.visibility = "visible";
 }
-
-cards.forEach(card => card.addEventListener('click', flipCard));
+// 
 startBtn.addEventListener('click', startGame);
+cards.forEach(card => card.addEventListener('click', flipCard));

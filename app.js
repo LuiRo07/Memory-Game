@@ -1,6 +1,7 @@
 const cards = document.querySelectorAll(".memory-card");
 const gameBoard = document.querySelector(".memory-game");
 const startBtn = document.querySelector(".start-btn");
+let score = document.querySelector(".counter");
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -47,6 +48,7 @@ function unflipCards() { // Cards don't match
     setTimeout(() => {
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
+        score.innerHTML++;
         resetBoard();
     }, 1000);
 }
@@ -66,6 +68,8 @@ function resetBoard() { // function invoked after isMatch()
 
 function startGame() {
     gameBoard.style.visibility = "visible";
+    score.innerHTML = 0;
+    startBtn.style.visibility = 'hidden';
 }
 // 
 startBtn.addEventListener('click', startGame);

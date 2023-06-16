@@ -31,6 +31,19 @@ body {
     color: white;
 }
 
+.counter {
+    font-size: 8vh;
+    color: #471069;
+    font-family: "Lemon", cursive;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform .2s
+}
+
+.counter.flip {
+    transform: rotateY('180deg');
+}
+
 .memory-game {
     width: 640px;
     height: 640px;
